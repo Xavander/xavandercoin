@@ -220,10 +220,10 @@ Value stop(const Array& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "stop\n"
-            "\nStop LightPayCoin server.");
+            "\nStop Xavander server.");
     // Shutdown will take long enough that the response should get back
     StartShutdown();
-    return "LightPayCoin server stopping";
+    return "Xavander server stopping";
 }
 
 
@@ -300,36 +300,36 @@ static const CRPCCommand vRPCCommands[] =
         {"hidden", "reconsiderblock", &reconsiderblock, true, true, false},
         {"hidden", "setmocktime", &setmocktime, true, false, false},
 
-        /* Lightpaycoin features */
-        {"lightpaycoin", "masternode", &masternode, true, true, false},
-        {"lightpaycoin", "listmasternodes", &listmasternodes, true, true, false},
-        {"lightpaycoin", "getmasternodecount", &getmasternodecount, true, true, false},
-        {"lightpaycoin", "masternodeconnect", &masternodeconnect, true, true, false},
-        {"lightpaycoin", "masternodecurrent", &masternodecurrent, true, true, false},
-        {"lightpaycoin", "masternodedebug", &masternodedebug, true, true, false},
-        {"lightpaycoin", "startmasternode", &startmasternode, true, true, false},
-        {"lightpaycoin", "createmasternodekey", &createmasternodekey, true, true, false},
-        {"lightpaycoin", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
-        {"lightpaycoin", "listmasternodeconf", &listmasternodeconf, true, true, false},
-        {"lightpaycoin", "getmasternodestatus", &getmasternodestatus, true, true, false},
-        {"lightpaycoin", "getmasternodewinners", &getmasternodewinners, true, true, false},
-        {"lightpaycoin", "getmasternodescores", &getmasternodescores, true, true, false},
-        {"lightpaycoin", "mnbudget", &mnbudget, true, true, false},
-        {"lightpaycoin", "preparebudget", &preparebudget, true, true, false},
-        {"lightpaycoin", "submitbudget", &submitbudget, true, true, false},
-        {"lightpaycoin", "mnbudgetvote", &mnbudgetvote, true, true, false},
-        {"lightpaycoin", "getbudgetvotes", &getbudgetvotes, true, true, false},
-        {"lightpaycoin", "getnextsuperblock", &getnextsuperblock, true, true, false},
-        {"lightpaycoin", "getbudgetprojection", &getbudgetprojection, true, true, false},
-        {"lightpaycoin", "getbudgetinfo", &getbudgetinfo, true, true, false},
-        {"lightpaycoin", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
-        {"lightpaycoin", "mnfinalbudget", &mnfinalbudget, true, true, false},
-        {"lightpaycoin", "checkbudgets", &checkbudgets, true, true, false},
-        {"lightpaycoin", "mnsync", &mnsync, true, true, false},
-        {"lightpaycoin", "spork", &spork, true, true, false},
-        {"lightpaycoin", "getpoolinfo", &getpoolinfo, true, true, false},
+        /* Xavander features */
+        {"xavander", "masternode", &masternode, true, true, false},
+        {"xavander", "listmasternodes", &listmasternodes, true, true, false},
+        {"xavander", "getmasternodecount", &getmasternodecount, true, true, false},
+        {"xavander", "masternodeconnect", &masternodeconnect, true, true, false},
+        {"xavander", "masternodecurrent", &masternodecurrent, true, true, false},
+        {"xavander", "masternodedebug", &masternodedebug, true, true, false},
+        {"xavander", "startmasternode", &startmasternode, true, true, false},
+        {"xavander", "createmasternodekey", &createmasternodekey, true, true, false},
+        {"xavander", "getmasternodeoutputs", &getmasternodeoutputs, true, true, false},
+        {"xavander", "listmasternodeconf", &listmasternodeconf, true, true, false},
+        {"xavander", "getmasternodestatus", &getmasternodestatus, true, true, false},
+        {"xavander", "getmasternodewinners", &getmasternodewinners, true, true, false},
+        {"xavander", "getmasternodescores", &getmasternodescores, true, true, false},
+        {"xavander", "mnbudget", &mnbudget, true, true, false},
+        {"xavander", "preparebudget", &preparebudget, true, true, false},
+        {"xavander", "submitbudget", &submitbudget, true, true, false},
+        {"xavander", "mnbudgetvote", &mnbudgetvote, true, true, false},
+        {"xavander", "getbudgetvotes", &getbudgetvotes, true, true, false},
+        {"xavander", "getnextsuperblock", &getnextsuperblock, true, true, false},
+        {"xavander", "getbudgetprojection", &getbudgetprojection, true, true, false},
+        {"xavander", "getbudgetinfo", &getbudgetinfo, true, true, false},
+        {"xavander", "mnbudgetrawvote", &mnbudgetrawvote, true, true, false},
+        {"xavander", "mnfinalbudget", &mnfinalbudget, true, true, false},
+        {"xavander", "checkbudgets", &checkbudgets, true, true, false},
+        {"xavander", "mnsync", &mnsync, true, true, false},
+        {"xavander", "spork", &spork, true, true, false},
+        {"xavander", "getpoolinfo", &getpoolinfo, true, true, false},
 #ifdef ENABLE_WALLET
-        {"lightpaycoin", "obfuscation", &obfuscation, false, false, true}, /* not threadSafe because of SendMoney */
+        {"xavander", "obfuscation", &obfuscation, false, false, true}, /* not threadSafe because of SendMoney */
 
         /* Wallet */
         {"wallet", "addmultisigaddress", &addmultisigaddress, true, false, true},
@@ -594,16 +594,16 @@ void StartRPCThreads()
         unsigned char rand_pwd[32];
         GetRandBytes(rand_pwd, 32);
         uiInterface.ThreadSafeMessageBox(strprintf(
-                                             _("To use lightpaycoind, or the -server option to lightpaycoin-qt, you must set an rpcpassword in the configuration file:\n"
+                                             _("To use xavanderd, or the -server option to xavander-qt, you must set an rpcpassword in the configuration file:\n"
                                                "%s\n"
                                                "It is recommended you use the following random password:\n"
-                                               "rpcuser=lightpaycoinrpc\n"
+                                               "rpcuser=xavanderrpc\n"
                                                "rpcpassword=%s\n"
                                                "(you do not need to remember this password)\n"
                                                "The username and password MUST NOT be the same.\n"
                                                "If the file does not exist, create it with owner-readable-only file permissions.\n"
                                                "It is also recommended to set alertnotify so you are notified of problems;\n"
-                                               "for example: alertnotify=echo %%s | mail -s \"LightPayCoin Alert\" admin@foo.com\n"),
+                                               "for example: alertnotify=echo %%s | mail -s \"Xavander Alert\" admin@foo.com\n"),
                                              GetConfigFile().string(),
                                              EncodeBase58(&rand_pwd[0], &rand_pwd[0] + 32)),
             "", CClientUIInterface::MSG_ERROR | CClientUIInterface::SECURE);
@@ -1054,14 +1054,14 @@ std::vector<std::string> CRPCTable::listCommands() const
 
 std::string HelpExampleCli(string methodname, string args)
 {
-    return "> lightpaycoin-cli " + methodname + " " + args + "\n";
+    return "> xavander-cli " + methodname + " " + args + "\n";
 }
 
 std::string HelpExampleRpc(string methodname, string args)
 {
     return "> curl --user myusername --data-binary '{\"jsonrpc\": \"1.0\", \"id\":\"curltest\", "
            "\"method\": \"" +
-           methodname + "\", \"params\": [" + args + "] }' -H 'content-type: text/plain;' http://127.0.0.1:39798/\n";
+           methodname + "\", \"params\": [" + args + "] }' -H 'content-type: text/plain;' http://127.0.0.1:39796/\n";
 }
 
 const CRPCTable tableRPC;

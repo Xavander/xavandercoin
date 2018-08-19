@@ -64,15 +64,15 @@ bin_PROGRAMS =
 TESTS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += lightpaycoind
+  bin_PROGRAMS += xavanderd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += lightpaycoin-cli lightpaycoin-tx
+  bin_PROGRAMS += xavander-cli xavander-tx
 endif
 
 .PHONY: FORCE
-# lightpaycoin core #
+# xavander core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   addrman.h \
@@ -180,7 +180,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between lightpaycoind and lightpaycoin-qt
+# server: shared between xavanderd and xavander-qt
 libbitcoin_server_a_CPPFLAGS = $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS)
 libbitcoin_server_a_SOURCES = \
   addrman.cpp \
@@ -224,7 +224,7 @@ libbitcoin_zmq_a_SOURCES = \
   zmq/zmqpublishnotifier.cpp
 endif
 
-# wallet: shared between lightpaycoind and lightpaycoin-qt, but only linked
+# wallet: shared between xavanderd and xavander-qt, but only linked
 # when wallet enabled
 
 libbitcoin_wallet_a_CFLAGS = -fPIC
@@ -295,7 +295,7 @@ univalue_libbitcoin_univalue_a_SOURCES = \
   univalue/univalue_escapes.h \
   univalue/univalue.h
 
-# common: shared between lightpaycoind, and lightpaycoin-qt and non-server tools
+# common: shared between xavanderd, and xavander-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_common_a_SOURCES = \
   allocators.cpp \
@@ -351,7 +351,7 @@ libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 libbitcoin_util_a_SOURCES += compat/glibcxx_compat.cpp
 endif
 
-# cli: shared between lightpaycoin-cli and lightpaycoin-qt
+# cli: shared between xavander-cli and xavander-qt
 libbitcoin_cli_a_CPPFLAGS = $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_SOURCES = \
   rpcclient.cpp \
@@ -361,7 +361,7 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-lightpaycoind_LDADD = \
+xavanderd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UNIVALUE) \
@@ -372,40 +372,40 @@ lightpaycoind_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-lightpaycoind_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+xavanderd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-lightpaycoind_LDADD += libbitcoin_wallet.a
+xavanderd_LDADD += libbitcoin_wallet.a
 endif
-lightpaycoind_SOURCES = lightpaycoind.cpp
+xavanderd_SOURCES = xavanderd.cpp
 #
 
 if TARGET_WINDOWS
-lightpaycoind_SOURCES += lightpaycoind-res.rc
+xavanderd_SOURCES += xavanderd-res.rc
 endif
 
-lightpaycoind_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
-lightpaycoind_CPPFLAGS = $(BITCOIN_INCLUDES)
-lightpaycoind_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+xavanderd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS)
+xavanderd_CPPFLAGS = $(BITCOIN_INCLUDES)
+xavanderd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 
-# lightpaycoin-cli binary #
-lightpaycoin_cli_LDADD = \
+# xavander-cli binary #
+xavander_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBBITCOIN_UTIL) \
   $(BOOST_LIBS) \
   $(SSL_LIBS) \
   $(CRYPTO_LIBS)
 
-lightpaycoin_cli_SOURCES = \
-  lightpaycoin-cli.cpp
+xavander_cli_SOURCES = \
+  xavander-cli.cpp
 
-lightpaycoin_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
+xavander_cli_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
 
-# lightpaycoin-tx binary #
-lightpaycoin_tx_LDADD = \
+# xavander-tx binary #
+xavander_tx_LDADD = \
   $(LIBBITCOIN_UNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
@@ -414,15 +414,15 @@ lightpaycoin_tx_LDADD = \
   $(BOOST_LIBS) \
   $(CRYPTO_LIBS)
 
-lightpaycoin_tx_SOURCES = lightpaycoin-tx.cpp
-lightpaycoin_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
+xavander_tx_SOURCES = xavander-tx.cpp
+xavander_tx_CPPFLAGS = $(BITCOIN_INCLUDES)
 #
-lightpaycoin_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+xavander_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-lightpaycoin_cli_SOURCES += lightpaycoin-cli-res.rc
+xavander_cli_SOURCES += xavander-cli-res.rc
 endif
-lightpaycoin_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+xavander_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if BUILD_BITCOIN_LIBS
 include_HEADERS = script/bitcoinconsensus.h

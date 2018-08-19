@@ -20,7 +20,7 @@ BitcoinUnits::BitcoinUnits(QObject* parent) : QAbstractListModel(parent),
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(LPC);
+    unitlist.append(XCZM);
     unitlist.append(mLPC);
     unitlist.append(uLPC);
     return unitlist;
@@ -29,7 +29,7 @@ QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 bool BitcoinUnits::valid(int unit)
 {
     switch (unit) {
-    case LPC:
+    case XCZM:
     case mLPC:
     case uLPC:
         return true;
@@ -41,12 +41,12 @@ bool BitcoinUnits::valid(int unit)
 QString BitcoinUnits::id(int unit)
 {
     switch (unit) {
-    case LPC:
-        return QString("lightpaycoin");
+    case XCZM:
+        return QString("xavander");
     case mLPC:
-        return QString("mlightpaycoin");
+        return QString("mxavander");
     case uLPC:
-        return QString::fromUtf8("ulightpaycoin");
+        return QString::fromUtf8("uxavander");
     default:
         return QString("???");
     }
@@ -56,18 +56,18 @@ QString BitcoinUnits::name(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case LPC:
-            return QString("LPC");
+        case XCZM:
+            return QString("XCZM");
         case mLPC:
             return QString("mLPC");
         case uLPC:
-            return QString::fromUtf8("μLPC");
+            return QString::fromUtf8("μXCZM");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case LPC:
+        case XCZM:
             return QString("tLPC");
         case mLPC:
             return QString("mtLPC");
@@ -83,18 +83,18 @@ QString BitcoinUnits::description(int unit)
 {
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
         switch (unit) {
-        case LPC:
-            return QString("LPC");
+        case XCZM:
+            return QString("XCZM");
         case mLPC:
-            return QString("Milli-LPC (1 / 1" THIN_SP_UTF8 "000)");
+            return QString("Milli-XCZM (1 / 1" THIN_SP_UTF8 "000)");
         case uLPC:
-            return QString("Micro-LPC (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            return QString("Micro-XCZM (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
         default:
             return QString("???");
         }
     } else {
         switch (unit) {
-        case LPC:
+        case XCZM:
             return QString("TestLPCs");
         case mLPC:
             return QString("Milli-TestLPC (1 / 1" THIN_SP_UTF8 "000)");
@@ -109,7 +109,7 @@ QString BitcoinUnits::description(int unit)
 qint64 BitcoinUnits::factor(int unit)
 {
     switch (unit) {
-    case LPC:
+    case XCZM:
         return 100000000;
     case mLPC:
         return 100000;
@@ -123,7 +123,7 @@ qint64 BitcoinUnits::factor(int unit)
 int BitcoinUnits::decimals(int unit)
 {
     switch (unit) {
-    case LPC:
+    case XCZM:
         return 8;
     case mLPC:
         return 5;

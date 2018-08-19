@@ -83,7 +83,7 @@ BitcoinAddressCheckValidator::BitcoinAddressCheckValidator(QObject* parent) : QV
 QValidator::State BitcoinAddressCheckValidator::validate(QString& input, int& pos) const
 {
     Q_UNUSED(pos);
-    // Validate the passed LightPayCoin address
+    // Validate the passed Xavander address
     CBitcoinAddress addr(input.toStdString());
     if (addr.IsValid())
         return QValidator::Acceptable;

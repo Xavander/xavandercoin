@@ -8,7 +8,7 @@
 #include "spork.h"
 
 //
-// Bootup the Masternode, look for a 10000 LightPayCoin input and register on the network
+// Bootup the Masternode, look for a 10000 Xavander input and register on the network
 //
 void CActiveMasternode::ManageStatus()
 {
@@ -47,12 +47,13 @@ void CActiveMasternode::ManageStatus()
             return;
         }
 
+		
         if (pwalletMain->GetBalance() == 0) {
             notCapableReason = "Hot node, waiting for remote activation.";
             LogPrintf("CActiveMasternode::ManageStatus() - not capable: %s\n", notCapableReason);
             return;
         }
-
+		
         if (strMasterNodeAddr.empty()) {
             if (!GetLocal(service)) {
                 notCapableReason = "Can't detect external address. Please use the masternodeaddr configuration option.";
@@ -64,13 +65,13 @@ void CActiveMasternode::ManageStatus()
         }
 
         if (Params().NetworkID() == CBaseChainParams::MAIN) {
-            if (service.GetPort() != 39797) {
-                notCapableReason = strprintf("Invalid port: %u - only 39797 is supported on mainnet.", service.GetPort());
+            if (service.GetPort() != 39799) {
+                notCapableReason = strprintf("Invalid port: %u - only 39799 is supported on mainnet.", service.GetPort());
                 LogPrintf("CActiveMasternode::ManageStatus() - not capable: %s\n", notCapableReason);
                 return;
             }
-        } else if (service.GetPort() == 39797) {
-            notCapableReason = strprintf("Invalid port: %u - 39797 is only supported on mainnet.", service.GetPort());
+        } else if (service.GetPort() == 39799) {
+            notCapableReason = strprintf("Invalid port: %u - 39799 is only supported on mainnet.", service.GetPort());
             LogPrintf("CActiveMasternode::ManageStatus() - not capable: %s\n", notCapableReason);
             return;
         }
@@ -263,13 +264,13 @@ bool CActiveMasternode::Register(std::string strService, std::string strKeyMaste
 
     CService service = CService(strService);
     if (Params().NetworkID() == CBaseChainParams::MAIN) {
-        if (service.GetPort() != 39797) {
-            errorMessage = strprintf("Invalid port %u for masternode %s - only 39797 is supported on mainnet.", service.GetPort(), strService);
+        if (service.GetPort() != 39799) {
+            errorMessage = strprintf("Invalid port %u for masternode %s - only 39799 is supported on mainnet.", service.GetPort(), strService);
             LogPrintf("CActiveMasternode::Register() - %s\n", errorMessage);
             return false;
         }
-    } else if (service.GetPort() == 39797) {
-        errorMessage = strprintf("Invalid port %u for masternode %s - 39797 is only supported on mainnet.", service.GetPort(), strService);
+    } else if (service.GetPort() == 39799) {
+        errorMessage = strprintf("Invalid port %u for masternode %s - 39799 is only supported on mainnet.", service.GetPort(), strService);
         LogPrintf("CActiveMasternode::Register() - %s\n", errorMessage);
         return false;
     }
