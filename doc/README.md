@@ -1,39 +1,39 @@
-LightPayCoin Core
+Xavander Core
 =====================
 
 Setup
 ---------------------
-[LightPayCoin Core](http://lightpaycoin.org/wallet) is the original LightPayCoin client and it builds the backbone of the network. However, it downloads and stores the entire history of LightPayCoin transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
+[Xavander Core](http://xavander.org/wallet) is the original Xavander client and it builds the backbone of the network. However, it downloads and stores the entire history of Xavander transactions; depending on the speed of your computer and network connection, the synchronization process can take anywhere from a few hours to a day or more. Thankfully you only have to do this once.
 
 Running
 ---------------------
-The following are some helpful notes on how to run LightPayCoin on your native platform.
+The following are some helpful notes on how to run Xavander on your native platform.
 
 ### Unix
 
 Unpack the files into a directory and run:
 
-- bin/32/lightpaycoin-qt (GUI, 32-bit) or bin/32/lightpaycoind (headless, 32-bit)
-- bin/64/lightpaycoin-qt (GUI, 64-bit) or bin/64/lightpaycoind (headless, 64-bit)
+- bin/32/xavander-qt (GUI, 32-bit) or bin/32/xavanderd (headless, 32-bit)
+- bin/64/xavander-qt (GUI, 64-bit) or bin/64/xavanderd (headless, 64-bit)
 
 ### Windows
 
-Unpack the files into a directory, and then run lightpaycoin-qt.exe.
+Unpack the files into a directory, and then run xavander-qt.exe.
 
 ### OSX
 
-Drag LightPayCoin-Qt to your applications folder, and then run LightPayCoin-Qt.
+Drag Xavander-Qt to your applications folder, and then run Xavander-Qt.
 
 ### Need Help?
 
-* See the documentation at the [LightPayCoin Wiki](https://en.bitcoin.it/wiki/Main_Page) ***TODO***
+* See the documentation at the [Xavander Wiki](https://en.bitcoin.it/wiki/Main_Page) ***TODO***
 for help and more information.
-* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [LightPayCoin Forum](http://forum.lightpaycoin.org/).
-* Join one of our Slack groups [LightPayCoin Slack Groups](https://lightpaycoin.org/slack-logins/).
+* Ask for help on [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or on the [Xavander Forum](http://forum.xavander.org/).
+* Join one of our Slack groups [Xavander Slack Groups](https://xavander.org/slack-logins/).
 
 Building
 ---------------------
-The following are developer notes on how to build LightPayCoin on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
+The following are developer notes on how to build Xavander on your native platform. They are not complete guides, but include notes on the necessary libraries, compile flags, etc.
 
 - [OSX Build Notes](build-osx.md)
 - [Unix Build Notes](build-unix.md)
@@ -41,7 +41,7 @@ The following are developer notes on how to build LightPayCoin on your native pl
 
 Development
 ---------------------
-The Lightpaycoin repo's [root README](https://github.com/LightPayCoin-Project/LightPayCoin/blob/master/README.md) contains relevant information on the development process and automated testing.
+The Xavander repo's [root README](https://github.com/Xavander-Project/Xavander/blob/master/README.md) contains relevant information on the development process and automated testing.
 
 - [Developer Notes](developer-notes.md)
 - [Multiwallet Qt Development](multiwallet-qt.md)
@@ -55,8 +55,8 @@ The Lightpaycoin repo's [root README](https://github.com/LightPayCoin-Project/Li
 
 ### Resources
 
-* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [LightPayCoin](http://forum.lightpaycoin.org/) forum.
-* Join the [LightPayCoin-Dev](https://lightpaycoin-dev.slack.com/) Slack group ([Sign-Up](https://lightpaycoin-dev.herokuapp.com/)).
+* Discuss on the [BitcoinTalk](https://bitcointalk.org/index.php?topic=1262920.0) or the [Xavander](http://forum.xavander.org/) forum.
+* Join the [Xavander-Dev](https://xavander-dev.slack.com/) Slack group ([Sign-Up](https://xavander-dev.herokuapp.com/)).
 
 ### Miscellaneous
 - [Assets Attribution](assets-attribution.md)
