@@ -107,7 +107,7 @@ public:
         nTargetTimespan = 1 * 60; // Xavander: 1 day
         nTargetSpacing = 1 * 60;  // Xavander: 1 minute
         nLastPOWBlock = 90;
-        nMaturity = 50;
+        nMaturity = 10;
         nMasternodeCountDrift = 20;
 		nMasternodeCollateralAmt = 10000; //masternode collateral 10k coins
        // nMasternodeCollateralLimit = 10000; //Old code from orginal codebase
@@ -135,7 +135,7 @@ public:
         assert(hashGenesisBlock == uint256("0xdd7de7f65b1776aeadaafc8e754af1cfc1218045bdf708c4d53b9c8407dc7585"));
         assert(genesis.hashMerkleRoot == uint256("0xa5c288205f9c0004f19a3d7fd717a9efe91e8b5966c1d0c93c9554d4e96dd697"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 49);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 75);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 13);
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 179);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x02)(0x2D)(0x25)(0x33).convert_to_container<std::vector<unsigned char> >();
