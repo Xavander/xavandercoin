@@ -97,7 +97,7 @@ public:
         pchMessageStart[3] = 0x5b;
         vAlertPubKey = ParseHex("04d9abcf44341dd9d952d92e96f1ba5808c7bbe45f98d17344ca3936a18327b17aceda9dfe0ccb9f7a7ad64b34e2f803a7ad604604509f967c516ba637681c555c");
         nDefaultPort = 39799;
-        bnProofOfWorkLimit = ~uint256(0) >> 20; // Xavander starting difficulty is 1 / 2^12
+        bnProofOfWorkLimit = ~uint256(0) >> 1; // Xavander starting difficulty is 1 / 2^12
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
         nEnforceBlockUpgradeMajority = 750;
@@ -106,7 +106,7 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // Xavander: 1 day
         nTargetSpacing = 1 * 60;  // Xavander: 1 minute
-        nLastPOWBlock = 90;
+        nLastPOWBlock = 200;
         nMaturity = 10;
         nMasternodeCountDrift = 20;
 		nMasternodeCollateralAmt = 10000; //masternode collateral 10k coins
