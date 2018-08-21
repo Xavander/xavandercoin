@@ -48,6 +48,7 @@ void CActiveMasternode::ManageStatus()
 
 		if (pwalletMain->GetBalance() < Params().MasternodeCollateralAmt()*COIN) {
 			LogPrintf("CActiveMasternode::ManageStateInitial -- %s: Wallet balance is < 10,000 XCZM\n", GetStateString());
+		}
 
 
 		/*
