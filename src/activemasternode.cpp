@@ -1,4 +1,3 @@
-
 #include "activemasternode.h"
 #include "addrman.h"
 #include "masternode.h"
@@ -47,13 +46,17 @@ void CActiveMasternode::ManageStatus()
             return;
         }
 
-		
+		if (pwalletMain->GetBalance() < Params().MasternodeCollateralAmt()*COIN) {
+			LogPrintf("CActiveMasternode::ManageStateInitial -- %s: Wallet balance is < 10,000 XCZM\n", GetStateString());
+
+
+		/*
         if (pwalletMain->GetBalance() == 0) {
             notCapableReason = "Hot node, waiting for remote activation.";
             LogPrintf("CActiveMasternode::ManageStatus() - not capable: %s\n", notCapableReason);
             return;
         }
-		
+		*/
         if (strMasterNodeAddr.empty()) {
             if (!GetLocal(service)) {
                 notCapableReason = "Can't detect external address. Please use the masternodeaddr configuration option.";
