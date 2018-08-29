@@ -111,7 +111,7 @@ public:
         nMasternodeCountDrift = 20;
 		nMasternodeCollateralAmt = 10000; //masternode collateral 10k coins
        // nMasternodeCollateralLimit = 10000; //Old code from orginal codebase
-        nModifierUpdateBlock = 1;
+        nModifierUpdateBlock = 615800;
         nMaxMoneyOut = 55000000 * COIN;
 
         const char* pszTimestamp = "National Suicide Prevention Hotline 1-800-273-8255";
