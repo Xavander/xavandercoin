@@ -135,6 +135,12 @@ public:
         assert(hashGenesisBlock == uint256("0xdd7de7f65b1776aeadaafc8e754af1cfc1218045bdf708c4d53b9c8407dc7585"));
         assert(genesis.hashMerkleRoot == uint256("0xa5c288205f9c0004f19a3d7fd717a9efe91e8b5966c1d0c93c9554d4e96dd697"));
 
+		//DNS Seeds
+		vSeeds.push_back(CDNSSeedData("149.28.56.206", "2149.28.56.206"));
+		vSeeds.push_back(CDNSSeedData("149.28.230.40", "149.28.230.40"));
+		vSeeds.push_back(CDNSSeedData("139.99.194.165", "139.99.194.165"));
+
+
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 75);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 13);
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 179);
